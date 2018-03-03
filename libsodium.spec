@@ -11,7 +11,7 @@ License:	BSD
 Group:		Libraries
 Source0:	https://download.libsodium.org/libsodium/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	37b18839e57e7a62834231395c8e962b
-URL:		https://github.com/jedisct1/libsodium
+URL:		https://libsodium.org/
 BuildRequires:	pkgconfig >= 1:0.25
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
