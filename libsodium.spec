@@ -67,8 +67,6 @@ Statyczna biblioteka libsodium.
 %setup -q -n %{name}-stable
 
 %build
-# because of bug in ld.bfd (crashes with double free)
-CFLAGS="%{rpmcflags} -fuse-ld=gold"
 %configure \
 	--disable-silent-rules \
 	%{__enable_disable static_libs static}
