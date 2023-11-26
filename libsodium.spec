@@ -1,5 +1,6 @@
 #
 # Conditional build:
+%bcond_without	static_libs	# static library
 %bcond_without	tests		# don't perform "make check"
 
 Summary:	Portable NaCl-based crypto library
@@ -13,6 +14,7 @@ Source0:	https://download.libsodium.org/libsodium/releases/%{name}-%{version}.ta
 # Source0-md5:	0d8e2233fc41be6d4c7ee36d5dfe9416
 URL:		https://libsodium.org/
 BuildRequires:	pkgconfig >= 1:0.25
+BuildRequires:	rpmbuild(macros) >= 1.527
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -68,7 +70,8 @@ Statyczna biblioteka libsodium.
 # because of bug in ld.bfd (crashes with double free)
 CFLAGS="%{rpmcflags} -fuse-ld=gold"
 %configure \
-	--disable-silent-rules
+	--disable-silent-rules \
+	%{__enable_disable static_libs static}
 
 %{__make}
 
@@ -102,6 +105,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/sodium
 %{_pkgconfigdir}/libsodium.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libsodium.a
+%endif
