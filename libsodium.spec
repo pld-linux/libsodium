@@ -6,12 +6,12 @@
 Summary:	Portable NaCl-based crypto library
 Summary(pl.UTF-8):	Przenośna biblioteka kryptograficzna oparta na NaCl
 Name:		libsodium
-Version:	1.0.19
+Version:	1.0.20
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	https://download.libsodium.org/libsodium/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	0d8e2233fc41be6d4c7ee36d5dfe9416
+# Source0-md5:	597f2c7811f84e63e45e2277dfb5da46
 URL:		https://libsodium.org/
 BuildRequires:	pkgconfig >= 1:0.25
 BuildRequires:	rpmbuild(macros) >= 1.527
@@ -64,7 +64,7 @@ Static libsodium library.
 Statyczna biblioteka libsodium.
 
 %prep
-%setup -q -n %{name}-stable
+%setup -q
 
 %build
 %configure \
